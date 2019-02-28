@@ -12,21 +12,26 @@ import com.example.krishanroy.unit_04_assessment.R;
 
 public class DetailFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String NAME_KEY = "param1";
+    private static final String IMAGE_KEY = "param2";
+    private static final String WIKI_KEY = "param3";
     private String mParam1;
     private String mParam2;
+    private String mParam3;
 
     private OnFragmentInteractionListener mListener;
 
     public DetailFragment() {
     }
 
-    public static DetailFragment newInstance(String param1, String param2) {
+    public static DetailFragment newInstance(String animalName,
+                                             String animalImage,
+                                             String animalWikiInfo) {
         DetailFragment fragment = new DetailFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(NAME_KEY, animalName);
+        args.putString(IMAGE_KEY, animalImage);
+        args.putString(WIKI_KEY, animalWikiInfo);
         fragment.setArguments(args);
         return fragment;
     }
@@ -35,8 +40,9 @@ public class DetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(NAME_KEY);
+            mParam2 = getArguments().getString(IMAGE_KEY);
+            mParam3 = getArguments().getString(WIKI_KEY);
         }
     }
 
