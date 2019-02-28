@@ -69,7 +69,7 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_detail, container, false);
         imageView = rootview.findViewById(R.id.animal_display_imageView);
-        textView = rootview.findViewById(R.id.anima_name_display_textView);
+        textView = rootview.findViewById(R.id.animal_name_display_textView);
         button = rootview.findViewById(R.id.website_button);
         return rootview;
     }
@@ -94,7 +94,5 @@ public class DetailFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String website);
-
-        void getDataFromTheMainActivity(String animalName, String animalImage, String infoWebsite);
     }
 }

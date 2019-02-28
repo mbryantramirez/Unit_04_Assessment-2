@@ -32,11 +32,5 @@ public class SecondActivity extends AppCompatActivity implements DetailFragment.
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
 
-
-    }
-
-    @Override
-    public void getDataFromTheMainActivity(String animalName, String animalImage, String infoWebsite) {
-
     }
 }

@@ -31,7 +31,6 @@ public class AnimalViewHolder extends RecyclerView.ViewHolder {
         Picasso.get().load(messages.getImage()).into(imageView);
         itemView.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), SecondActivity.class);
