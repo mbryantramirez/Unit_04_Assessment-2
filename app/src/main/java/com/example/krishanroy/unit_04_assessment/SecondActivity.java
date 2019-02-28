@@ -21,7 +21,6 @@ public class SecondActivity extends AppCompatActivity implements DetailFragment.
         DetailFragment detailFragment = DetailFragment.newInstance(name, image, website);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, detailFragment)
-                .addToBackStack("null")
                 .commit();
     }
 
