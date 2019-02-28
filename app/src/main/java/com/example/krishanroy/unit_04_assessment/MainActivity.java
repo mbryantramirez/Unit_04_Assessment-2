@@ -1,5 +1,6 @@
 package com.example.krishanroy.unit_04_assessment;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.krishanroy.unit_04_assessment.controller.AnimalAdapter;
+import com.example.krishanroy.unit_04_assessment.fragments.DetailFragment;
 import com.example.krishanroy.unit_04_assessment.model.Messages;
 import com.example.krishanroy.unit_04_assessment.model.OuterClass;
 import com.example.krishanroy.unit_04_assessment.network.GetApi;
@@ -48,4 +50,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

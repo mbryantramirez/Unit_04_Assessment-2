@@ -14,9 +14,9 @@ import com.example.krishanroy.unit_04_assessment.model.Messages;
 import com.squareup.picasso.Picasso;
 
 public class AnimalViewHolder extends RecyclerView.ViewHolder {
-    private static final String ANIMAL_KEY = "animal key";
-    private static final String IMAGE_KEY = "image key";
-    private static final String WIKI_KEY = "wiki key";
+    public static final String ANIMAL_KEY = "animal key";
+    public static final String IMAGE_KEY = "image key";
+    public static final String WIKI_KEY = "wiki key";
     private TextView textView;
     private ImageView imageView;
 

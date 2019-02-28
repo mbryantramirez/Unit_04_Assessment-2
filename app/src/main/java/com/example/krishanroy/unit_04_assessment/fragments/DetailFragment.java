@@ -1,37 +1,44 @@
 package com.example.krishanroy.unit_04_assessment.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.krishanroy.unit_04_assessment.R;
+import com.squareup.picasso.Picasso;
 
 public class DetailFragment extends Fragment {
 
     private static final String NAME_KEY = "param1";
     private static final String IMAGE_KEY = "param2";
     private static final String WIKI_KEY = "param3";
-    private String mParam1;
-    private String mParam2;
-    private String mParam3;
+    private String website;
+    private String animalName;
+    private String animalImage;
+    private View rootview;
+    private ImageView imageView;
+    private TextView textView;
+    private Button button;
 
     private OnFragmentInteractionListener mListener;
 
     public DetailFragment() {
     }
 
-    public static DetailFragment newInstance(String animalName,
-                                             String animalImage,
-                                             String animalWikiInfo) {
+    public static DetailFragment newInstance(String animalName, String animalImage, String infoWebsite) {
         DetailFragment fragment = new DetailFragment();
         Bundle args = new Bundle();
         args.putString(NAME_KEY, animalName);
         args.putString(IMAGE_KEY, animalImage);
-        args.putString(WIKI_KEY, animalWikiInfo);
+        args.putString(WIKI_KEY, infoWebsite);
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,9 +47,9 @@ public class DetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(NAME_KEY);
-            mParam2 = getArguments().getString(IMAGE_KEY);
-            mParam3 = getArguments().getString(WIKI_KEY);
+            animalName = getArguments().getString(NAME_KEY);
+            animalImage = getArguments().getString(IMAGE_KEY);
+            website = getArguments().getString(WIKI_KEY);
         }
     }
 
@@ -60,7 +67,23 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+        rootview = inflater.inflate(R.layout.fragment_detail, container, false);
+        imageView = rootview.findViewById(R.id.animal_display_imageView);
+        textView = rootview.findViewById(R.id.anima_name_display_textView);
+        button = rootview.findViewById(R.id.website_button);
+        return rootview;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Picasso.get().load(animalImage).into(imageView);
+        textView.setText(animalName);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onFragmentInteraction(website);
+            }
+        });
     }
 
     @Override
@@ -70,6 +93,8 @@ public class DetailFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String website);
+
+        void getDataFromTheMainActivity(String animalName, String animalImage, String infoWebsite);
     }
 }
